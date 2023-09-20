@@ -1,0 +1,25 @@
+name: Push Sample File to Main Branch
+
+on:
+ workflow_dispatch
+
+jobs:
+  update_repo_with_sample_file:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Create a Sample File
+      run: echo "This is sample content." > sample.txt
+
+    - name: Commit and Push File
+      run: |
+        
+        git config --local user.email "durgamani.thota@thomsonreuters.com"
+        git config --local user.name "ThotadurgamaniTR"
+        git add sample.txt
+        #git clone https://${{ secrets.OAUTH_TOKEN}}@github.com/ThotadurgamaniTR/Boomi_TEMP.git
+        git commit -m "Add sample.txt via GitHub Actions"
+        git push -f origin main
