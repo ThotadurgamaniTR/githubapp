@@ -22,4 +22,4 @@ jobs:
         git add sample.txt
         #git clone https://${{ secrets.OAUTH_TOKEN}}@github.com/ThotadurgamaniTR/Boomi_TEMP.git
         git commit -m "Add sample.txt via GitHub Actions"
-        git push -f origin main
+        git push -f origin main ${{ secrets.OAUTH_TOKEN}}
